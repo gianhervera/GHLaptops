@@ -4,4 +4,6 @@ class Product < ApplicationRecord
   validates :product, :type_name, :company, :inches, :screen_resolution,
             :CPU, :RAM, :memory, :GPU, :price, presence: true
   has_one_attached :image
+  has_many :product_categories, dependent: :destroy
+  has_many :categories, through: :product_categories
 end

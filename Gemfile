@@ -59,4 +59,4 @@ gem 'devise'
 
 gem 'arctic_admin'
 
-gem 'foundation-rails'
+gem 'pagy'

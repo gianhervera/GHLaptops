@@ -1,2 +1,30 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="card">
+                  <div class="card-image">
+              <figure class="image is-48x48">
+                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+              </figure>
+            </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= @product.company %> - <%= @product.product %></h5>
+        <h5 class="card-title"><%= @product.type_name %></h5>
+        <h5 class="card-title">Specifications:</h5>
+        <h4 class="card-title">CPU: <%= @product.CPU %></h5>
+        <h4 class="card-title">Memory:  <%= @product.memory %></h5>
+        <h4 class="card-title">GPU:  <%= @product.GPU %></h5>
+        <h4 class="card-title">RAM:  <%= @product.RAM %></h5>
+        <h4 class="card-title">Screen Resolution:  <%= @product.screen_resolution %></h5>
+        <h4 class="card-title">Inches:  <%= @product.inches %></h5>
+        <h4 class="text-right">
+          Unit Price:
+          <span style="color: green"><%= number_to_currency @product.price %></span>
+        </h4>
+        <footer class="card-footer">
+            <a href="#" class="card-footer-item">Add to cart</a>
+       </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GHLaptops</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%=yield(:html_title) if content_for?(:html_title)%>GH Laptops</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <p class="title is-1 is-spaced">GH Laptops</p>
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+              <div class="navbar-item">
+
+            </div>
+          </div>
+        </nav>
+   <section class="section">
+    <div class="container">
+    <div class="level-right">
+     <div class="level-item">
+        <%= text_field_tag(:keywords, nil, class: "input is-rounded", placeholder: "Search a laptop") %>
+        <%= submit_tag("Search", class: "button is-dark") %>
+      </div>
+    </div>
+        <%= yield %>
+        </div>
+    </div>
+   </section>
+
   </body>
 </html>
