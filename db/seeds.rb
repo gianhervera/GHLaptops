@@ -18,6 +18,7 @@ CSV.foreach(Rails.root.join('db/laptops.csv'), headers: true) do |row|
     price: row["Price_euros"],
 
   } )
+
 end
 
 puts "Created #{Product.count}"

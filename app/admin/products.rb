@@ -13,7 +13,7 @@ form do |f|
     f.input :memory
     f.input :GPU
     f.input :price
-    f.input :images, as: :file, hint: f.object.image.present? ? image_tag(f.object.image) : ""
+    f.input :images, as: :file, hint: f.object.image.present? ? image_tag(f.object.image, size: "200x200") : ""
   end
   f.actions
 end

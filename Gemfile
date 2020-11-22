@@ -58,3 +58,5 @@ gem 'activeadmin'
 gem 'devise'
 
 gem 'arctic_admin'
+
+gem 'foundation-rails'
