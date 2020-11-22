@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
+
   def index
-    @products = Product.order("company ASC")
+   @pagy, @products = pagy(Product.all)
   end
 
   def show

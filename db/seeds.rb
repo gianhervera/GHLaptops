@@ -1,10 +1,11 @@
 require "csv"
+require "uri"
 
 Product.delete_all
 AdminUser.delete_all
 
 CSV.foreach(Rails.root.join('db/laptops.csv'), headers: true) do |row|
-  Product.create( {
+  p = Product.create( {
     product_id: row["product_id"],
     company: row["Company"],
     product: row["Product"],
@@ -19,7 +20,8 @@ CSV.foreach(Rails.root.join('db/laptops.csv'), headers: true) do |row|
 
   } )
 
-end
+ end
+
 
 puts "Created #{Product.count}"
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_195828) do
+ActiveRecord::Schema.define(version: 2020_11_22_203838) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -112,6 +112,15 @@ ActiveRecord::Schema.define(version: 2020_11_22_195828) do
   create_table "roles", force: :cascade do |t|
     t.integer "role_id"
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "keywords"
+    t.integer "category_id"
+    t.decimal "min_price"
+    t.decimal "max_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -60,3 +60,10 @@ gem 'devise'
 gem 'arctic_admin'
 
 gem 'pagy'
+
+gem 'ransack'
+
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
+
+gem 'foundation-rails'

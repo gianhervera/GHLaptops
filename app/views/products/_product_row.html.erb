@@ -1,27 +1,21 @@
-<div class="container">
-  <div class="column">
-    <% @products.each do |product| %>
-     <%= link_to product, class: "card" do %>
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-48x48">
+ <% @products.each do |product| %>
+   <%= link_to product, class: "card" do %>
+      <aside>
+         <div class="card">
+           <div class="card-image">
+            <figure class="image is-48x48">
                 <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-4"><%= product.company %></p>
-                  <p class="title is-5"><%= product.product %></p>
-                  <p class="subtitle is-6"><%= product.type_name %></p>
-                </div>
-              </div>
-              <div class="content">
-                <%= product.price%>
-              </div>
-            </div>
-          </div>
-                <% end %>
+             </figure>
+             </div>
+           </div>
+        <% link_to product %>
+          <p><%= product.company %></p>
+        <p><%= product.product %></p>
+        <p><%= product.type_name %></p>
+        <p>Price: <%= number_to_currency product.price %></p>
+      </aside>
+       <% end %>
     <% end %>
-  </div>
-</div>
+
+
+
