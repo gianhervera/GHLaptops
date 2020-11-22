@@ -1,7 +1,7 @@
 require "csv"
 
 Product.delete_all
-
+AdminUser.delete_all
 
 CSV.foreach(Rails.root.join('db/laptops.csv'), headers: true) do |row|
   Product.create( {
@@ -20,4 +20,8 @@ CSV.foreach(Rails.root.join('db/laptops.csv'), headers: true) do |row|
   } )
 end
 
-puts "Created #{Product.count}"AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+puts "Created #{Product.count}"
+
+ if Rails.env.development?
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+ end
