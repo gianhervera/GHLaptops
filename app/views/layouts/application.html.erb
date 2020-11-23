@@ -40,6 +40,10 @@
             </div>
           </div>
         </nav>
+        <%=debug session[:shopping_cart]%>
+        <% if flash[:notice]%>
+          <p><%= flash[:notice]%></p>
+        <%end%>
   </header>
   <main>
    <%= yield %>

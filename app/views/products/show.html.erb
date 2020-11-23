@@ -20,7 +20,15 @@
           <span style="color: green"><%= number_to_currency @product.price %></span>
         </h4>
         <footer class="card-footer">
-            <a href="#" class="card-footer-item">Add to cart</a>
+          <% if cart.include?(product) %>
+          <%= button_to cart_path(path), method: :delete do%>
+           Remove item
+          <%end%>
+          <%else%>
+            <%= form_with url: cart_index_path , method: :post do%>
+            <%= hidden_field_tag(:id, @product.id)%>
+            <%= button_tag "Add to cart"%>
+            <%end%>
        </footer>
         </div>
       </div>
