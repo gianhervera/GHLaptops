@@ -9,12 +9,8 @@ class ApplicationController < ActionController::Base
 
   def initialize_session
     session[:shopping_cart] ||= []
-
   end
   def cart
     Product.find(session[:shopping_cart])
-  end
-  def visit_count
-
   end
 end
