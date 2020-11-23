@@ -1,6 +1,5 @@
 require "csv"
-require "uri"
-
+require 'faker'
 Product.delete_all
 AdminUser.delete_all
 
@@ -19,7 +18,8 @@ CSV.foreach(Rails.root.join('db/laptops.csv'), headers: true) do |row|
     price: row["Price_euros"],
 
   } )
-
+  downloaded_image = URI.open("https://source.unsplash.com/600x600/?#{p.company}")
+  p.image.attach(io: downloaded_image, filename: "m-#{p.company}.jpg")
  end
 
 

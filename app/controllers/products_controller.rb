@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
    @pagy, @products = pagy(Product.all)
+
   end
 
   def show

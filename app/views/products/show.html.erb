@@ -1,11 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="card">
-                  <div class="card-image">
-              <figure class="image is-48x48">
-                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-              </figure>
-            </div>
+
+     <% if @product.image.present? %>
+         <p><%=image_tag @product.image.variant(resize_to_limit: [285,285]).processed%></p>
+         <%end%>
       <div class="card-body">
         <h5 class="card-title"><%= @product.company %> - <%= @product.product %></h5>
         <h5 class="card-title"><%= @product.type_name %></h5>

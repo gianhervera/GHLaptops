@@ -11,7 +11,6 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :RAM
       t.string :memory
       t.string :GPU
-      t.string :images
       t.integer :price
 
       t.timestamps
