@@ -20,9 +20,6 @@
 
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <a class="navbar-brand">GH</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
@@ -56,27 +53,18 @@
           <a class="dropdown-item" href="#">Xiaomi</a>
         </div>
       </li>
-      <li>
-      <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cart</a>
-       <% if cart.present? %>
-        <sup><%= cart.size%>
-        <ul>
-          <% cart.each do |product|%>
-          <li>
-              <%= product.product %> <%= link_to 'X', cart_path(product), method: :delete %>
-          </li>
-          <%end%>
-        </ul>
-       <% end %>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="badge badge-pill red"><%= cart.size%></span>
+                <i class="fas fa-shopping-cart pl-0"></i></a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+         <% cart.each do |product|%>
+          <a class="dropdown-item" href="#"> <%= product.product %> <%= link_to 'X', cart_path(product), method: :delete %></a>
+            <%end%>
+        </div>
       </li>
-    </ul>
-  </div>
 </nav>
 
   <body>
-        <% if flash[:notice]%>
-          <p><%= flash[:notice]%></p>
-        <%end%>
   </header>
   <main>
    <%= yield %>

@@ -67,3 +67,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'image_processing'
 gem 'faker'
+
+gem "font-awesome-rails"
+gem 'font-awesome-less'
+gem 'font-awesome-sass'

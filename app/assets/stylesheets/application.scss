@@ -13,20 +13,5 @@
  *= require_tree .
  *= require_self
  */
- footer {
-   font-size: 1.2rem;
- }
-
- footer p span{
-   font-size: 1.5rem;
- }
-
- form {
-   margin-top: 2rem;
-   min-width: 250px;
-   text-align: center;
- }
-
- nav ul li ul li a{
-   display: inline;
- }
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
