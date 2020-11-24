@@ -1,3 +1,5 @@
+<br>
+<br>
 <div class="col-sm-9 padding-right" id="wrapper-center">
 					<div class="features_items">
             <% @products.each do |product| %>
@@ -6,12 +8,12 @@
 								<div class="single-products">
 										<div class="productinfo text-center">
                       <% if product.image.present? %>
-                      <p><%=image_tag product.image.variant(resize_to_limit: [285,285]).processed%></p>
+                      <p><%= image_tag product.image.variant(resize_to_limit: [285,285]).processed%></p>
                       <%end%>
 											<h4><strong><%= product.company %> | <%= product.product %></strong></h4>
                      <h4><%= product.type_name %></h4>
                      <h2> <%= number_to_currency product.price %></h2>
-										<button type="button" class="btn btn-dark"><%= link_to "More Details", product  %></button>
+										<button type="button" class="btn btn-dark"><%= link_to "View Product", product  %></button>
 										</div>
 								</div>
 							</div>

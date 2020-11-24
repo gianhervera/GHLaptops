@@ -1,5 +1,6 @@
-
-
+<br>
+<br>
+<br>
 <div class="card ">
 	<div class="row no-gutters">
 		<aside class="col-md-6">
@@ -16,7 +17,7 @@
 <h3 class="title"><%= @product.company %> - <%= @product.product %></h3>
 <h4 class="title"><%= @product.type_name %></h4>
 <div class="rating-wrap my-3">
-	<small class="label-rating text-muted">132 reviews</small>
+	<small class="label-rating text-muted">100 reviews</small>
 </div> <!-- rating-wrap.// -->
 
 <div class="mb-3">
@@ -50,7 +51,7 @@
             <%= form_with url: cart_index_path , method: :post do%>
             <%= hidden_field_tag(:id, @product.id)%>
 
-            	<button type="button" class="btn btn-dark"> <%= button_tag "Add to cart"%></button>
+            	<span class="btn btn-dark"> <%= button_tag "Add to cart"%></span>
             <%end%>
             <%end%>
 </article>
