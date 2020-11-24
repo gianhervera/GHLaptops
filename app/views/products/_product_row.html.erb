@@ -8,10 +8,9 @@
                       <% if product.image.present? %>
                       <p><%=image_tag product.image.variant(resize_to_limit: [285,285]).processed%></p>
                       <%end%>
-											<h2> <%= number_to_currency product.price %></h2>
-											<p><%= product.company %></p>
-                      <p><%= product.product %></p>
-                     <p><%= product.type_name %></p>
+											<h4><strong><%= product.company %> | <%= product.product %></strong></h4>
+                     <h4><%= product.type_name %></h4>
+                     <h2> <%= number_to_currency product.price %></h2>
 										<button type="button" class="btn btn-dark"><%= link_to "More Details", product  %></button>
 										</div>
 								</div>
@@ -19,5 +18,8 @@
 						</div>
             <%end%>
 					</div><!--features_items-->
- <%= pagy_nav(@pagy).html_safe%>
+
+<%== pagy_bootstrap_nav(@pagy) %>
+
+ </nav>
 				</div>

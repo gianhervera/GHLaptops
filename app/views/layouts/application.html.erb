@@ -26,16 +26,39 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/admin">Admin <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/admin">Admin</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cart</a>
-
-          <% if cart.present? %>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brand</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Acer</a>
+          <a class="dropdown-item" href="#">Apple</a>
+          <a class="dropdown-item" href="#">Asus</a>
+          <a class="dropdown-item" href="#">Chuwi</a>
+          <a class="dropdown-item" href="#">Dell</a>
+          <a class="dropdown-item" href="#">Fujitsu</a>
+          <a class="dropdown-item" href="#">Google</a>
+          <a class="dropdown-item" href="#">HP</a>
+          <a class="dropdown-item" href="#">Huawei</a>
+          <a class="dropdown-item" href="#">Lenovo</a>
+          <a class="dropdown-item" href="#">LG</a>
+          <a class="dropdown-item" href="#">Mediacom</a>
+          <a class="dropdown-item" href="#">Microsoft</a>
+          <a class="dropdown-item" href="#">MSI</a>
+          <a class="dropdown-item" href="#">Razer</a>
+          <a class="dropdown-item" href="#">Samsung</a>
+          <a class="dropdown-item" href="#">Toshiba</a>
+          <a class="dropdown-item" href="#">Vero</a>
+          <a class="dropdown-item" href="#">Xiaomi</a>
+        </div>
+      </li>
+      <li>
+      <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cart</a>
+       <% if cart.present? %>
         <sup><%= cart.size%>
         <ul>
           <% cart.each do |product|%>
@@ -45,13 +68,8 @@
           <%end%>
         </ul>
        <% end %>
-
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 

@@ -1,13 +1,13 @@
-<div class="card">
+
+
+<div class="card ">
 	<div class="row no-gutters">
 		<aside class="col-md-6">
 <article class="gallery-wrap">
 <% if @product.image.present? %>
-<div class="img-big-wrap">
-  <div> <a href="#">
+
          <p><%=image_tag @product.image.variant(resize_to_limit: [900,900]).processed%></p>
-         </a></div>
-</div>
+
 <%end%>
 </article>
 		</aside>
@@ -53,7 +53,7 @@
             	<button type="button" class="btn btn-dark"> <%= button_tag "Add to cart"%></button>
             <%end%>
             <%end%>
-</article> <!-- product-info-aside .// -->
-		</main> <!-- col.// -->
-	</div> <!-- row.// -->
-</div> <!-- card.// -->
+</article>
+		</main>
+	</div>
+</div>
