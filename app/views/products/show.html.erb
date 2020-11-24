@@ -1,38 +1,59 @@
-<div class="container">
-  <div class="row">
-    <div class="card">
+<div class="card">
+	<div class="row no-gutters">
+		<aside class="col-md-6">
+<article class="gallery-wrap">
+<% if @product.image.present? %>
+<div class="img-big-wrap">
+  <div> <a href="#">
+         <p><%=image_tag @product.image.variant(resize_to_limit: [900,900]).processed%></p>
+         </a></div>
+</div>
+<%end%>
+</article>
+		</aside>
+		<main class="col-md-6 border-left">
+<article class="content-body">
+<h3 class="title"><%= @product.company %> - <%= @product.product %></h3>
+<h4 class="title"><%= @product.type_name %></h4>
+<div class="rating-wrap my-3">
+	<small class="label-rating text-muted">132 reviews</small>
+</div> <!-- rating-wrap.// -->
 
-     <% if @product.image.present? %>
-         <p><%=image_tag @product.image.variant(resize_to_limit: [285,285]).processed%></p>
-         <%end%>
-      <div class="card-body">
-        <h5 class="card-title"><%= @product.company %> - <%= @product.product %></h5>
-        <h5 class="card-title"><%= @product.type_name %></h5>
-        <h5 class="card-title">Specifications:</h5>
-        <h4 class="card-title">CPU: <%= @product.CPU %></h5>
-        <h4 class="card-title">Memory:  <%= @product.memory %></h5>
-        <h4 class="card-title">GPU:  <%= @product.GPU %></h5>
-        <h4 class="card-title">RAM:  <%= @product.RAM %></h5>
-        <h4 class="card-title">Screen Resolution:  <%= @product.screen_resolution %></h5>
-        <h4 class="card-title">Inches:  <%= @product.inches %></h5>
-        <h4 class="text-right">
-          Unit Price:
-          <span style="color: green"><%= number_to_currency @product.price %></span>
-        </h4>
-        <footer class="card-footer">
-          <% if cart.include?(@product) %>
+<div class="mb-3">
+	<var class="price h4" style="color: green"><%= number_to_currency @product.price %></var>
+</div> <!-- price-detail-wrap .// -->
+
+<dl class="row">
+  <dt class="col-sm-3">CPU</dt>
+  <dd class="col-sm-9"><%= @product.CPU %></dd>
+
+  <dt class="col-sm-3">Memory</dt>
+  <dd class="col-sm-9"><%= @product.memory %></dd>
+
+  <dt class="col-sm-3">GPU</dt>
+  <dd class="col-sm-9"><%= @product.GPU %> </dd>
+  <dt class="col-sm-3">RAM</dt>
+  <dd class="col-sm-9"><%= @product.RAM %> </dd>
+  <dt class="col-sm-3">Screen Resolution</dt>
+  <dd class="col-sm-9"><%= @product.screen_resolution %> </dd>
+  <dt class="col-sm-3">Inches</dt>
+  <dd class="col-sm-9"><%= @product.inches %> </dd>
+</dl>
+
+<hr>
+
+<% if cart.include?(@product) %>
           <%= button_to cart_path(@product), method: :delete do%>
            Remove item
            <%end%>
           <% else %>
             <%= form_with url: cart_index_path , method: :post do%>
             <%= hidden_field_tag(:id, @product.id)%>
-            <%= button_tag "Add to cart"%>
+
+            	<button type="button" class="btn btn-dark"> <%= button_tag "Add to cart"%></button>
             <%end%>
             <%end%>
-       </footer>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</article> <!-- product-info-aside .// -->
+		</main> <!-- col.// -->
+	</div> <!-- row.// -->
+</div> <!-- card.// -->
