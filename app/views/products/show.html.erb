@@ -50,7 +50,6 @@
           <% else %>
             <%= form_with url: cart_index_path , method: :post do%>
             <%= hidden_field_tag(:id, @product.id)%>
-
             	<span class="btn btn-dark"> <%= button_tag "Add to cart"%></span>
             <%end%>
             <%end%>

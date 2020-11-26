@@ -1,5 +1,10 @@
 <br>
 <br>
+  <div class="col-sm-9 padding-center" id="wrapper-center">
+    <% if flash[:notice]%>
+          <p style="color:white"><%= flash[:notice]%></p>
+        <%end%>
+  </div>
 <div class="col-sm-9 padding-right" id="wrapper-center">
 					<div class="features_items">
             <% @products.each do |product| %>
@@ -14,6 +19,7 @@
                      <h4><%= product.type_name %></h4>
                      <h2> <%= number_to_currency product.price %></h2>
 										<button type="button" class="btn btn-dark"><%= link_to "View Product", product  %></button>
+										<button type="button" class="btn btn-dark"><%= link_to "Purchase", product  %></button>
 										</div>
 								</div>
 							</div>
