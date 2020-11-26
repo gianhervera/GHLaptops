@@ -6,4 +6,10 @@ class Product < ApplicationRecord
   has_one_attached :image
   has_many :product_categories, dependent: :destroy
   has_many :categories, through: :product_categories
+  def self.search(search)
+    if search
+     where(["company LIKE ?", "%#{:search}%"])
+  end
+    all
+end
 end

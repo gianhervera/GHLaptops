@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-   @pagy, @products = pagy(Product.all)
+  @pagy, @products = pagy(Product.search(params[:search]))
 
   end
 

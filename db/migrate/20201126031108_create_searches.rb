@@ -2,7 +2,7 @@ class CreateSearches < ActiveRecord::Migration[6.0]
   def change
     create_table :searches do |t|
       t.string :keywords
-      t.integer :category_id
+      t.string :category
       t.decimal :min_price
       t.decimal :max_price
 

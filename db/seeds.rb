@@ -3,6 +3,10 @@ require 'faker'
 Product.delete_all
 AdminUser.delete_all
 
+if Rails.env.development?
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+ end
+
 CSV.foreach(Rails.root.join('db/laptops.csv'), headers: true) do |row|
   p = Product.create( {
     product_id: row["product_id"],
@@ -26,6 +30,3 @@ CSV.foreach(Rails.root.join('db/laptops.csv'), headers: true) do |row|
 puts "Created #{Product.count}"
 
 
- if Rails.env.development?
-  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
- end
