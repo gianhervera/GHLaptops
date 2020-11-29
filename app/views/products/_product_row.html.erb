@@ -1,10 +1,12 @@
 <br>
 <br>
+
   <div class="col-sm-9 padding-center" id="wrapper-center">
     <% if flash[:notice]%>
           <p style="color:white"><%= flash[:notice]%></p>
         <%end%>
   </div>
+
 <div class="col-sm-9 padding-right" id="wrapper-center">
 					<div class="features_items">
             <% @products.each do |product| %>

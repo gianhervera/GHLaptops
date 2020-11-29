@@ -1,30 +1,75 @@
-<h2>Sign up</h2>
-
+<div class="container">
+<div class="card">
+<article class="card-body">
+<header class="mb-4">
+	<h4 class="card-title">Sign up</h4>
+</header>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+	<div class="form-row">
+		<div class="col form-group">
+			<label>First name</label>
+		  	<input type="text" class="form-control" placeholder="">
+		</div> <!-- form-group end.// -->
+		<div class="col form-group">
+			<label>Last name</label>
+		  	<input type="text" class="form-control" placeholder="">
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row end.// -->
+	<div class="form-group">
+		<label>Email</label>
+		 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+		<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+	</div> <!-- form-group end.// -->
+	<div class="form-group">
+		<label class="custom-control custom-radio custom-control-inline">
+		  <input class="custom-control-input" checked="" type="radio" name="gender" value="option1">
+		  <span class="custom-control-label"> Male </span>
+		</label>
+		<label class="custom-control custom-radio custom-control-inline">
+		  <input class="custom-control-input" type="radio" name="gender" value="option2">
+		  <span class="custom-control-label"> Female </span>
+		</label>
+	</div> <!-- form-group end.// -->
+	<div class="form-row">
+		<div class="form-group col-md-6">
+		  <label>City</label>
+		  <input type="text" class="form-control">
+		</div> <!-- form-group end.// -->
+		<div class="form-group col-md-6">
+		  <label>Country</label>
+		  <select id="inputState" class="form-control">
+		    <option> Choose...</option>
+		      <option>Uzbekistan</option>
+		      <option>Russia</option>
+		      <option selected="">Canada</option>
+		      <option>India</option>
+		      <option>United States</option>
+		  </select>
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row.// -->
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label>Create password</label>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+		</div> <!-- form-group end.// -->
+		<div class="form-group col-md-6">
+			<label>Repeat password</label>
+		        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+		</div> <!-- form-group end.// -->
+	</div>
+    <div class="form-group mt-3">
+      <%= f.submit "Sign up", class: "btn btn-primary btn-block" %>
+    </div> <!-- form-group// -->
+    <p class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our Terms of use and Privacy Policy.</p>
+</form>
+<hr>
+<p class="text-center">Have an account?<%= render "devise/shared/links" %></p>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</article> <!-- card-body end .// -->
+</div>
+<%end%>
+</div>

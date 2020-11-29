@@ -59,11 +59,23 @@
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="badge badge-pill red"><%= cart.size%></span>
                 <i class="fas fa-shopping-cart pl-0"></i></a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
+        <div class="dropdown-menu p-3 dropdown-menu-right" style="min-width: 300px; position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-60px, 38px, 0px);" x-placement="bottom-end">
          <% cart.each do |product|%>
-          <a class="dropdown-item" href="#"><%= link_to product.product, product  %><%= link_to 'X', cart_path(product), method: :delete %></a>
+          <figure class="itemside mb-3">
+          <% if product.image.present? %>
+          <div class="aside"><%= image_tag product.image.variant(resize_to_limit: [78,78]).processed, class:"img-sm border" %></div>
+               <%end%>
+          <figcaption class="info align-self-center">
+            <p class="title"><%= product.product%></p>
+           <%= link_to 'X', cart_path(product), method: :delete, class: "float-right" %>
+            <div class="price"><%= product.price%></div> <!-- price-wrap.// -->
+          </figcaption>
+        </figure>
+
             <%end%>
+            <a href="" class="btn btn-primary btn-block"> Checkout </a>
         </div>
+
       </li>
 
         <ul class="navbar-nav ml-auto">
@@ -83,15 +95,18 @@
                </li>
           <% end %>
         </ul>
-        <%= form_tag products_path, :method => 'get', class: 'form-inline my-2 my-lg-0' do%>
-        <%= text_field_tag :search, params[:search], class: 'form-control mr-sm-2'%>
-        <%= submit_tag "Search", class: 'btn btn-outline-success my-2 my-sm-0'%>
-        <%end%>
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to "Advanced Search", new_search_path, class: 'btn btn-outline-success my-2 my-sm-0'%>
+        </li>
+        </ul>
+
 
 </nav>
 
 </header>
   <body>
+
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
   <main>

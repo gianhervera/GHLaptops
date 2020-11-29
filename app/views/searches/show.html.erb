@@ -1,0 +1,28 @@
+<h1>Search Results(<%=  @search.search_products.count %>)</h1>
+
+<% if @search.search_products.empty? %>
+<p>Product not found.</p>
+
+<%else%>
+<div class="col-sm-9 padding-right" id="wrapper-center">
+					<div class="features_items">
+<% @search.search_products.each do |c|%>
+	<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+                      <% if c.image.present? %>
+                      <p><%= image_tag c.image.variant(resize_to_limit: [285,285]).processed%></p>
+                      <%end%>
+											<h4><strong><%= c.company %> | <%= c.product %></strong></h4>
+                     <h4><%= c.type_name %></h4>
+                     <h2> <%= number_to_currency c.price %></h2>
+										<button type="button" class="btn btn-dark"><%= link_to "View Product", product_path  %></button>
+										<button type="button" class="btn btn-dark"><%= link_to "Purchase", product_path  %></button>
+										</div>
+								</div>
+							</div>
+						</div>
+            <%end%>
+					</div>
+<%end%>

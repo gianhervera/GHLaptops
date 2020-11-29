@@ -1,6 +1,5 @@
 <br>
 <br>
-<br>
 <div class="card ">
 	<div class="row no-gutters">
 		<aside class="col-md-6">
@@ -44,16 +43,18 @@
 <hr>
 
 <% if cart.include?(@product) %>
-          <%= button_to cart_path(@product), method: :delete do%>
+          <%= button_to cart_path(@product), method: :delete, class: "text btn  btn-primary" do%>
            Remove item
            <%end%>
           <% else %>
             <%= form_with url: cart_index_path , method: :post do%>
             <%= hidden_field_tag(:id, @product.id)%>
-            	<span class="btn btn-dark"> <%= button_tag "Add to cart"%></span>
+           <p><%= button_tag "Add to cart", class: "text btn  btn-primary"%></p>
             <%end%>
             <%end%>
 </article>
 		</main>
 	</div>
 </div>
+
+
